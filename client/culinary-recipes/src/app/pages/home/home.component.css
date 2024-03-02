@@ -1,7 +1,7 @@
 .cover {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 95vh;
     position: relative;
 }
 
