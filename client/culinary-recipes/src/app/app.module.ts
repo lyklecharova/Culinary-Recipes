@@ -15,17 +15,15 @@ import { RecipeModule } from './recipe/recipe.module';
   declarations: [
     AppComponent,
     MainComponent,
-
-   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     CoreModule,
     SharedModule,
     UserModule,
-    RecipeModule
+    RecipeModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
