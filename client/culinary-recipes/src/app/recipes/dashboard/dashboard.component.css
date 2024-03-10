@@ -1,0 +1,142 @@
+.container-dashboard {
+
+    background-color: rgba(0, 0, 0, 0.591);
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    gap:50px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.container-dashboard:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-image: url("/assets/calum-lewis-vA1L1jRTM70-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+
+}
+
+.container-dashboard-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50px;
+
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff7c;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 200px;
+
+}
+
+.dashboard-img {
+    width: 200px;
+    height: 180px;
+    background-position: center;
+    object-fit: cover;
+    background-size: contain;
+
+}
+
+.dashboard-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.dashboard-information-description {
+    overflow-wrap: anywhere;
+    font-size: 14px;
+    height: 40px;
+    overflow: hidden;
+    padding: 0px 10px;
+    letter-spacing: 0.5px;
+}
+
+.dashboard-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    width: 90%;
+    /* text-decoration: none; */
+}
+.dashboard-link{
+    text-decoration: none;
+}
+
+.dashboard-button:hover {
+    background-color: #0056b3;
+}
+
+.recipe-error {
+    font-size: 5rem;
+    color: wheat;
+}
+
+.error a {
+    font-size: 2em;
+    text-align: center;
+    color: orange
+}
+
+.pagination {
+    position: absolute;
+    bottom: 150px;
+    list-style: none;
+    padding: 0;
+    /* margin-bottom: -392px; */
+    display: flex;
+    justify-content: center;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #ffffffbc;
+    font-size: 20px;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    align-items: center;
+}
+
+
+.pagination button:hover {
+    background-color: #fff;
+}
+
+.pagination button.active {
+    background-color: #fff;
+}
