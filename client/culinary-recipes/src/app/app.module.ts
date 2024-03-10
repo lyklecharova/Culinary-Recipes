@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
-import { HttpClientModule } from '@angular/common/http'
 import { MainComponent } from './main/main.component';
 import { UserModule } from './pages/user/user.module';
-import { RecipeModule } from './recipe/recipe.module';
+import { RecipesModule } from './recipes/recipes.module';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { RecipeModule } from './recipe/recipe.module';
     CoreModule,
     SharedModule,
     UserModule,
-    RecipeModule,
+    RecipesModule,
     AppRoutingModule,
   ],
   providers: [],
