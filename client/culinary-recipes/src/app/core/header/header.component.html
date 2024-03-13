@@ -1,28 +1,51 @@
 <header class="header">
-    <nav class="nav">
-        <ul role="list" class="list">
-            <li class="element">
-                <a routerLink="/home">Home</a>
-            </li>
-            <li class="element">
-                <a routerLink="/dashboard">Dashboard</a>
-            </li>
-            <!-- Показва се само ако потребителят е аутентикиран -->
-                <li class="element">
-                    <a routerLink="/create">Create Recipes</a>
-                </li>
-                <li class="element">
-                    <a routerLink="/logout">Logout</a>
-                </li>
+    <nav class="navigationWelcome">
+        <div class="contentLogo">
+            <a class="logo link" routerLink="/">Healthy Delicious</a>
+        </div>
+        <div class="contentLinks">
+            <a class="link" routerLink="/create-recipe">Create Recipe</a>
+            <a class="link" routerLink="/recipes">Recipes</a>
+            <a class="link" routerLink="/about-us">About Us</a>
+            <a class="link" routerLink="/contacts">Contacts</a>
 
-            <!-- Показва се само ако потребителят не е аутентикиран -->
-            
-                <li class="element">
-                    <a routerLink="/login">Login</a>
-                </li>
-                <li class="element">
-                    <a routerLink="/register">Register</a>
-                </li>
-        </ul>
+        </div>
+    </nav>
+
+    <!-- <nav class="navigationGuest">
+        <div class="contentLogo">
+            <a class="logo link" routerLink="/">Healthy Delicious</a>
+        </div>
+
+        <div class="contentLinks">
+            <a class="link" routerLink="/about-us">About Us</a>
+            <a class="link" routerLink="/contacts">Contacts</a>
+
+            <a class="linkSignIn" routerLink="/login">Login</a>
+            <a class="linkSignIn" routerLink="/register">Register</a>
+        </div>
+    </nav> -->
+
+    <nav class="navigationMobile">
+        <div class="contentLogoMobile">
+            <a class="logoMobile linkMobile" routerLink="/">H&D</a>
+        </div>
+        <div class="contentButtonDownButtonMobile">
+            <button class="dropdownButtonMobile"><i class="fa-solid fa-bars"></i></button>
+            <div class="contentDropdownMobile">
+                <div class="contentOnCloseButtonMobile">
+                    <button class="onCloseButtonMobile"><i class="fa-solid fa-x"></i></button>
+
+                </div>
+                <a class="linkMobile" href=""><i class="fa-solid fa-house"></i></a>
+                <a class="linkMobile" routerLink="/create-recipe">Create Recipe</a>
+                <a class="linkMobile" routerLink="/recipes">Recipes</a>
+                <a class="linkMobile" routerLink="/about-us">About Us</a>
+                <a class="link" routerLink="/contacts">Contacts</a>
+
+                <a class="linkMobile" href="">Log out</a>
+
+            </div>
+        </div>
     </nav>
 </header>
