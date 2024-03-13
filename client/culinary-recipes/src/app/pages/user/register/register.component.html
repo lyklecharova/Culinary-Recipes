@@ -1,45 +1,17 @@
-<section class="login-register-section">
-    <form  method="post" class="login-register-form">
-  
-      <label for="email" class="login-form-label">Email</label>
-  
-      <input
-        type="email"
-        id="email"
-        name="email"
-        class="login-form-input"
-        placeholder="Email"
-        required
-        autoComplete="email"
-      />
-      <br />
-  
-      <label for="password" class="login-form-label">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        class="login-form-input"
-        placeholder="Password"
-        required
-        autoComplete="password"
-      />
-      <br />
-  
-      <label for="confirm_password" class="login-form-label">Confirm Password</label>
-  
-      <input
-        type="password"
-        id="confirmPassword"
-        name="confirmPassword"
-        class="login-form-input"
-        placeholder="Confirm Password"
-        required
-        autoComplete="confirm-password"
-      />
-      <br />
-  
-      <button type="submit" class="login-form-button">Registration</button>
-    </form>
-  </section>
-  
+<div class="section-register">
+  <form action="submit.php" method="post" class="register-form">
+      <label for="username" class="label-register-form">Username</label>
+      <input type="text" id="username" name="username" class="input-register-form" required>
+
+      <label for="email" class="label-register-form">Email</label>
+      <input type="email" id="email" name="email" class="input-register-form" required>
+
+      <label for="password" class="label-register-form">Password</label>
+      <input type="password" id="password" name="password" class="input-register-form" required>
+
+      <label for="confirm_password" class="label-register-form">Password</label>
+      <input type="password" id="confirm_password" name="confirm_password" class="input-register-form" required>
+
+      <input type="submit" value="Registration" class="button-register-form">
+  </form>
+</div>
