@@ -1,4 +1,4 @@
-.navigationWelcome {
+.navigation-welcome {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,7 +10,7 @@
 
 }
 
-.navigationGuest {
+.navigation-guest {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -21,7 +21,7 @@
 
 }
 
-.contentLinks {
+.content-links {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -41,7 +41,7 @@
 
 }
 
-.linkSignIn {
+.link-signIn {
     color: rgba(255, 0, 0, 0.637);
     font-weight: 500;
     letter-spacing: 1.5px;
@@ -50,7 +50,7 @@
     border-radius: 50px;
 }
 
-.linkSignIn:hover {
+.link-signIn:hover {
     background-color: orange;
     border: 2px solid orange;
     color: white;
@@ -58,7 +58,7 @@
 
 }
 /* --------------------------------------Navigation-Mobile------------------------------------------ */
-.navigationMobile{
+.navigation-mobile{
     display: none;
     flex-direction: row;
     align-items: center;
@@ -69,7 +69,7 @@
     box-shadow: 0px 0px 30px 30px white;
 }
 
-.dropdownButtonMobile {
+.dropdown-button-mobile {
     background-color: white;
     border: 2px solid orange;
     border-radius: 100%;
@@ -77,7 +77,7 @@
     color: orange;
     font-weight: 400;
 }
-.contentDropdownMobile {
+.content-dropdown-mobile {
     position: absolute;
     display: none;
     flex-direction: column;
@@ -93,23 +93,23 @@
     height: 800px;
 
 }
-.contentButtonDownButtonMobile:hover .contentDropdownMobile {
+.content-button-down-button-mobile:hover .content-dropdown-mobile {
     display: flex;
 }
-.linkMobile {
+.link-mobile {
     color: orange;
     font-weight: 400;
     letter-spacing: 1.5px;
     font-size: 16px;
 }
 
-.contentOnCloseButtonMobile {
+.content-on-close-button-mobile {
     display: flex;
     justify-content: flex-end;
 
 }
 
-.onCloseButtonMobile {
+.on-close-button-mobile {
     color: orange;
     background-color: white;
     border: none;
@@ -137,13 +137,13 @@
   }
   
   @media (min-width: 1024px) {
-    .link, .linkSignIn  {
+    .link, .link-signIn  {
         font-size: 18px;
     }
   }
   
   @media (min-width: 1280px) {
-    .link, .linkSignIn  {
+    .link, .link-signIn  {
         font-size: 20px;
     }
   }
