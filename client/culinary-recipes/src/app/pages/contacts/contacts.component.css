@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    min-height: 90vh;
+    /* margin: 50px 0px; */
 }
 
 .container-contacts:before {
@@ -23,70 +24,91 @@
 
 }
 
-.container {
+.content-contacts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    background: #ffffffbb;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    border-radius: 10px;
+    gap: 200px;
+    min-height: 453px;
+
+
+
+}
+
+.contact-info-title {
+    text-align: center;
+}
+
+.content-contacts-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    min-width: 900px;
-    min-height: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px 1px rgba(119, 136, 153, 0.719);
+    justify-content: space-between;
+    height: 90%;
 
 
-}
-
-h1 {
-    text-align: center;
 }
 
 .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
     margin-top: 20px;
     text-align: center;
+    height: 200px;
+
 }
 
-.contact-info p {
+.contact-info>p {
     margin: 10px 0;
     text-align: center;
 }
 
-form {
+.content-contacts-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     max-height: 600px;
-    width: 90%;
-    margin-top: 20px;
+    min-width: 250px;
+    /* min-height: 400px; */
+    /* height: 90%; */
+    min-height: 453px;
+
+
 }
 
-label {
+.content-contacts-form>label {
     display: block;
     margin-bottom: 5px;
     text-align: center;
     margin-top: 20px;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.content-contacts-form>input[type="text"],
+.content-contacts-form>input[type="email"],
+.content-contacts-form>textarea {
 
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 5px;
+    margin-bottom: 25px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-textarea {
+.content-contacts-form>textarea {
     height: 100px;
 }
 
-input[type="submit"] {
+.content-contacts-form>input[type="submit"] {
     width: 100%;
     background-color: orange;
     color: #fff;
@@ -97,6 +119,23 @@ input[type="submit"] {
 
 }
 
-input[type="submit"]:hover {
+.content-contacts-form>input[type="submit"]:hover {
     background-color: #FF5D5D;
+}
+
+@media screen and (max-width: 700px) {
+    .content-contacts {
+        gap: 30px;
+
+    }
+
+    .contact-info-title {
+        margin-top: 50px;
+    }
+
+    .content-contacts-form {
+        margin-bottom: 50px;
+
+
+    }
 }
