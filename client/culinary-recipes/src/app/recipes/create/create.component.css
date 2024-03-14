@@ -19,8 +19,6 @@
     background-repeat: no-repeat;
     z-index: -1;
     opacity: 0.4;
-
-
 }
 
 .create-recipe-form {
@@ -45,7 +43,6 @@
     align-items: center;
     /* min-width: 300px; */
     margin-bottom: 10px;
-
 }
 
 .create-recipe-label {
@@ -67,18 +64,17 @@
 .create-recipe-input,
 .create-recipe-textarea {
     border: 1px solid #ccc;
-    width: 300px;
+    width: 350px;
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
     letter-spacing: 1.5px;
     border-radius: 5px;
-
 }
 
 
 .create-recipe-button {
-    width: 300px;
+    width: 350px;
     padding: 12px;
     background-color: orange;
     color: #fff;
@@ -106,12 +102,10 @@
 
     .create-recipe-input,
     .create-recipe-textarea {
-
         width: 95%;
-
     }
+
     .create-recipe-button {
         width: 95%;
- 
     }
 }
