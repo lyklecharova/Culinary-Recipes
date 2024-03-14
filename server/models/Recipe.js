@@ -4,7 +4,9 @@ const User = require('./User');
 const recipesSchema = new mongoose.Schema({
 	title: String,
 	image: String,
-	url: String,
+	// url: String,
+	description: String,
+	ingredients: String,
 	// additionalInfo: String,
 	ownerId: { type: mongoose.Schema.Types.ObjectId, ref: User }
 });
