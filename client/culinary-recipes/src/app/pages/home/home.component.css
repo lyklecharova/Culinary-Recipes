@@ -4,7 +4,7 @@
     height: 90vh;
     /* background-color: rgba(0, 0, 0, 0.137); */
     /* position: relative; */
-    
+
 }
 
 .cover-title {
@@ -26,11 +26,8 @@
     font-size: 40px;
     backdrop-filter: blur(5px);
     box-shadow: 0px 0px 20px 1px rgba(119, 136, 153, 0.719);
-
-
-
-
 }
+
 @keyframes slide-in-from-left {
     0% {
         transform: translateX(-100%);
@@ -42,6 +39,7 @@
         opacity: 1;
     }
 }
+
 @keyframes slideIn {
     0% {
         opacity: 0;
@@ -144,12 +142,10 @@
 
 .about-recipe-link:hover {
     background-color: #FF5D5D;
-
 }
 
 .about-recipe-img {
     height: 400px;
-
 }
 
 .container-about {
@@ -184,7 +180,6 @@
     font-size: 17px;
 }
 
-
 .cover:before {
     content: "";
     position: absolute;
@@ -198,6 +193,4 @@
     background-repeat: no-repeat;
     z-index: -1;
     opacity: 0.4;
-
-
 }
