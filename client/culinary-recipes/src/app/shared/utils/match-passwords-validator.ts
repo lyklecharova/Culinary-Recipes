@@ -1,13 +1,16 @@
 import { ValidatorFn } from '@angular/forms';
 
 export function matchPasswordsValidator(
-  passwordControl: string,
-  confirmPasswordControl: string
+  passwordControlName: string,
+  confirmPasswordControlName: string
 ): ValidatorFn {
   return (control) => {
-    const passwordFirst = control.get(passwordControl);
-    const passwordSecond = control.get(confirmPasswordControl);
+    const passwordFormControl = control.get(passwordControlName);
+    const confirmPasswordFormControl = control.get(confirmPasswordControlName);
 
-    return null;
+    const areMatching =
+      passwordFormControl?.value == confirmPasswordFormControl?.value;
+
+    return areMatching ? null : { matchPasswordsValidator: true };
   };
 }
