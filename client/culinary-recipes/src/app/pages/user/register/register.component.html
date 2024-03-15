@@ -1,17 +1,60 @@
 <div class="section-register">
-  <form action="submit.php" method="post" class="register-form">
+	<form class="register-form" [formGroup]="form" (ngSubmit)="register()">
 
-    <label for="email" class="label-register-form">Email</label>
-    <input type="email" id="email" name="email" class="input-register-form" required placeholder="Enter your email...">
+		<label for="email" class="label-register-form">Email</label>
+		<input 
+			type="email" 
+			id="email" 
+			name="email" 
+			class="input-register-form" 
+			required
+			placeholder="Enter your email..." 
+			formControlName='email'
+		>
 
-    <label for="password" class="label-register-form">Password</label>
-    <input type="password" id="password" name="password" class="input-register-form" required
-      placeholder="Enter your password...">
+		<ng-container *ngIf="form.get('email')?.touched">
+			<p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required</p>
+			<p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">Email is not valid</p>
+		</ng-container>
 
-    <label for="confirm_password" class="label-register-form">Confirm Password</label>
-    <input type="password" id="confirm_password" name="confirm_password" class="input-register-form" required
-      placeholder="Confrim your password...">
+		<ng-container formGroupName="passGroup">
+			<label for="password" class="label-register-form">Password</label>
+			<input 
+				type="password" 
+				id="password" 
+				name="password" 
+				class="input-register-form" 
+				required
+				placeholder="Enter your password..." 
+				formControlName='password'
+			>
 
-    <input type="submit" value="Registration" class="button-register-form">
-  </form>
+			<label for="confirm_password" class="label-register-form">Confirm Password</label>
+			<input 
+				type="password" 
+				id="confirm_password" 
+				name="confirm_password" 
+				class="input-register-form" 
+				required
+				placeholder="Confrim your password..." 
+				formControlName='confirmPassword'
+			>
+
+			<ng-container *ngIf="form.get('passGroup')?.get('confirmPassword')?.touched">
+				<p 
+					class="error" 
+					*ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator'] ||
+					form.get('passGroup')?.get('confirmPassword')?.errors?.['required']"
+					
+				>
+					Confirm password does not match
+				</p>
+			</ng-container>
+		</ng-container>
+
+
+
+		<!-- <input type="submit" value="Registration" class="button-register-form"> -->
+		<button [disabled]="form.invalid" class="button-register-form">Registration</button>
+	</form>
 </div>
