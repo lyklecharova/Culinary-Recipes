@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { tap } from 'rxjs';
+import { NgForm } from '@angular/forms';
+
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -10,11 +11,10 @@ import { ApiService } from 'src/app/api.service';
 export class CreateComponent {
   constructor(private api: ApiService) {}
 
- addRecipe(title: string){
-    this.api.createRecipe(title).pipe(
-      tap((data)=>{
-        console.log(data)
-      })
-    )
+ addRecipe(form: NgForm){
+    if(form.valid){
+      return
+    }
+    console.log(form.value);
  }
 }
