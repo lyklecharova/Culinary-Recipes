@@ -13,6 +13,8 @@ import { RecipesModule } from './recipes/recipes.module';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { RecipesModule } from './recipes/recipes.module';
     UserModule,
     RecipesModule,
     AppRoutingModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
