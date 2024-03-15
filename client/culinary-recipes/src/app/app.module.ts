@@ -27,8 +27,6 @@ import { RecipesModule } from './recipes/recipes.module';
     UserModule,
     RecipesModule,
     AppRoutingModule,
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
