@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-
+ 
 import { UserService } from '../user.service';
 
 @Component({
@@ -13,7 +13,6 @@ export class LoginComponent {
   constructor(private userService: UserService, private router: Router) {}
 
   login(form: NgForm) {
-    console.log(form.value);
     if (form.invalid) {
       return;
     }
