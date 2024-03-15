@@ -10,12 +10,14 @@
 			placeholder="Enter your email..."
 			ngModel
 			#inputEmail="ngModel"
+			[appEmail]="domains"
 		>
 		<br>
 		<br>
 
 		<ng-container *ngIf="inputEmail.touched">
 			<p class="error" *ngIf="inputEmail.errors?.['required']">Email is required</p>
+			<p class="error" *ngIf="inputEmail.errors?.['emailValidator']">Email is not valid</p>
 		</ng-container>
 
 		<label for="password" class="login-form-label">Password</label>
@@ -28,11 +30,17 @@
 			placeholder="Enter your password..."
 			ngModel
 			#inputPassword="ngModel"
+			minlength="4"
 		>
 		<br>
 		<br>
 
+		<ng-container *ngIf="inputPassword.touched">
+			<p class="error" *ngIf="inputPassword.errors?.['required']">Password is required</p>
+			<p class="error" *ngIf="inputPassword.errors?.['minlength']">Password should be at least 4 charactrers</p>
+		</ng-container>
+
 		<!-- <input type="submit" value="Login" class="login-form-button"> -->
-		<button class="login-form-button">Login</button>
+		<button [disabled]="form.invalid" class="login-form-button">Login</button>
 	</form>
 </div>
