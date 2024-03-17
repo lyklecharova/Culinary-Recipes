@@ -1,14 +1,9 @@
 .container-dashboard {
-
-    background-color: rgba(0, 0, 0, 0.591);
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
-    gap:50px;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    position: relative;
+    min-height: 90vh;
 }
 
 .container-dashboard:before {
@@ -18,22 +13,21 @@
     left: 0px;
     width: 100%;
     height: 100vh;
-    background-image: url("/assets/calum-lewis-vA1L1jRTM70-unsplash.jpg");
+    background-image: url("/assets/brooke-lark-nTZOILVZuOg-unsplash.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
-
+    opacity: 0.4;
 }
 
-.container-dashboard-list {
+.content-dashboard-list {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     gap: 50px;
-
+    flex-wrap: wrap;
 }
 
 .dashboard-content {
@@ -41,21 +35,32 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #ffffff7c;
+    background: white;
     backdrop-filter: blur(10px);
     border-radius: 5px;
     overflow: hidden;
     width: 200px;
+    box-shadow: 0px 0px 20px 1px rgba(119, 136, 153, 0.719);
+    position: relative;
+    transition: transform 0.3s ease;
+}
 
+.dashboard-content:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-content:hover .dashboard-img {
+    transform: scale(1.1);
 }
 
 .dashboard-img {
-    width: 200px;
-    height: 180px;
+    width: 180px;
+    height: 160px;
+    margin: 10px;
     background-position: center;
     object-fit: cover;
     background-size: contain;
-
+    transition: transform 0.3s ease;
 }
 
 .dashboard-information {
@@ -89,54 +94,9 @@
     font-size: 16px;
     margin-bottom: 5px;
     width: 90%;
-    /* text-decoration: none; */
-}
-.dashboard-link{
-    text-decoration: none;
+    padding: 3px;
 }
 
 .dashboard-button:hover {
-    background-color: #0056b3;
-}
-
-.recipe-error {
-    font-size: 5rem;
-    color: wheat;
-}
-
-.error a {
-    font-size: 2em;
-    text-align: center;
-    color: orange
-}
-
-.pagination {
-    position: absolute;
-    bottom: 150px;
-    list-style: none;
-    padding: 0;
-    /* margin-bottom: -392px; */
-    display: flex;
-    justify-content: center;
-}
-
-.pagination button {
-    margin: 0 5px;
-    padding: 8px 12px;
-    background-color: #ffffffbc;
-    font-size: 20px;
-    color: #000;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    align-items: center;
-}
-
-
-.pagination button:hover {
-    background-color: #fff;
-}
-
-.pagination button.active {
-    background-color: #fff;
+    background-color: #FF5D5D;
 }
