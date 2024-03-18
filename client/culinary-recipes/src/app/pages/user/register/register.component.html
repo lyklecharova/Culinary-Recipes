@@ -11,6 +11,9 @@
 			placeholder="Enter your email..." 
 			formControlName='email'
 		>
+		<div class="icon">
+			<i class="fas fa-user"></i>
+		</div>
 
 		<ng-container *ngIf="form.get('email')?.touched">
 			<p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required</p>
@@ -28,6 +31,9 @@
 				placeholder="Enter your password..." 
 				formControlName='password'
 			>
+			<div class="icon">
+				<i class="fa-solid fa-lock"></i>
+			</div>
 
 			<label for="confirm_password" class="label-register-form">Confirm Password</label>
 			<input 
@@ -39,22 +45,20 @@
 				placeholder="Confrim your password..." 
 				formControlName='confirmPassword'
 			>
+			<div class="icon">
+				<i class="fa-solid fa-key"></i>
+			</div>
 
 			<ng-container *ngIf="form.get('passGroup')?.get('confirmPassword')?.touched">
-				<p 
-					class="error" 
-					*ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator'] ||
-					form.get('passGroup')?.get('confirmPassword')?.errors?.['required']"
-					
-				>
+				<p class="error" *ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator'] ||
+					form.get('passGroup')?.get('confirmPassword')?.errors?.['required']">
 					Confirm password does not match
 				</p>
 			</ng-container>
 		</ng-container>
 
 
-
 		<!-- <input type="submit" value="Registration" class="button-register-form"> -->
-		<button [disabled]="form.invalid" class="button-register-form">Registration</button>
+		<button class="button-register-form">Registration</button>
 	</form>
 </div>
