@@ -77,3 +77,19 @@
 .button-register-form:hover {
     background-color: #0056b3;
 }
+
+.icon {
+    position: relative;
+}
+
+.icon i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: #e09429;
+    font-size: 20px;
+
+    left: 156px;
+    bottom: -100px
+}
