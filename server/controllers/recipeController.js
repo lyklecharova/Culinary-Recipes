@@ -5,15 +5,16 @@ const { isLogUser } = require("../middleware/guards");
 const Recipe = require('../models/Recipe');
 
 // Create recipe - Logged
-router.post("/add", isLogUser, async (req, res) => {
+router.post("/add", async (req, res) => {
     const recipeDetails = req.body;
     try {
         console.log(recipeDetails);
-        await Recipe.create({ ...recipeDetails, ownerId: req.userId });
+        await Recipe.create(recipeDetails);
+        // await Recipe.create({ ...recipeDetails, ownerId: req.userId });
     } catch (error) {
         console.log(error);
     }
-    res.status(200).send("Send");
+    res.status(200).json({Send:"success"});
 });
 
 router.get("/", async (req, res) => {
