@@ -16,10 +16,10 @@ export class ApiService {
     return this.http.get<Recipe[]>(`${API_URL}/recipe`);
   }
   
-  createRecipe(title: string) {
+  createRecipe(recipe: Recipe) {
     const { API_URL } = environment;
-    const payload = { title };
-    return this.http.post<Recipe>(`${API_URL}/recipe`, payload); // Use correct interpolation for API_URL
+    const payload = recipe ;
+    return this.http.post<Recipe>(`${API_URL}/recipe/add`, payload); // Use correct interpolation for API_URL
   }
 
   getOneRecipe(id: string) {
