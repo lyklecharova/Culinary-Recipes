@@ -6,15 +6,17 @@ import { ApiService } from 'src/app/api.service';
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  styleUrls: ['./create.component.css'],
 })
 export class CreateComponent {
   constructor(private api: ApiService) {}
 
- addRecipe(form: NgForm){
-    if(form.valid){
-      return
+  addRecipe(form: NgForm) {
+    if (form.valid) {
+      console.log(form.value);
+      this.api.createRecipe(form.value).subscribe((result) => {
+        // console.log(result);
+      });
     }
-    console.log(form.value);
- }
+  }
 }
