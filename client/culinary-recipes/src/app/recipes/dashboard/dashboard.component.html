@@ -1,7 +1,7 @@
-<div *ngFor="let recipe of recipes" class="container-dashboard">
+<div  class="container-dashboard">
 
-  <div class="content-dashboard-list">
-    <div class="dashboard-content">
+  <div  class="content-dashboard-list">
+    <div *ngFor="let recipe of recipes" class="dashboard-content">
       <img class="dashboard-img" src={{recipe.image}} alt={{recipe.title}} />
       <div class="dashboard-information">
         <h3 class="dashboard-information-title">{{recipe.title}}</h3>
