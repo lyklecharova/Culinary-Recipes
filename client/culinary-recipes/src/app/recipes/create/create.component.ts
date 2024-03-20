@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { ApiService } from 'src/app/api.service';
 
@@ -9,7 +10,7 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private router: Router) {}
 
   addRecipe(form: NgForm) {
     if (form.valid) {
@@ -18,5 +19,6 @@ export class CreateComponent {
         // console.log(result);
       });
     }
+    this.router.navigate(['/recipes'])
   }
 }
