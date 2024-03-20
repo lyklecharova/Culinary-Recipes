@@ -2,7 +2,15 @@
     <form class="create-recipe-form" #form="ngForm" (ngSubmit)="addRecipe(form)">
         <div>
             <label for="image" class="create-recipe-label">Image</label>
-            <input type="text" class="create-recipe-input" name="image" placeholder="Upload image..." />
+            <input 
+                type="text" 
+                class="create-recipe-input" 
+                name="image" 
+                placeholder="Upload image..." 
+                required 
+                ngModel
+                #inputRecipeImage = 'ngModel'
+            />
         </div>
 
         <div>
