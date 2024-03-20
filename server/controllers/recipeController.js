@@ -35,13 +35,13 @@ router.get("/:id", async (req, res) => {
 });
 
 // Edit recipe - Logged and owner
-router.put("/:id", isLogUser, async (req, res) => {
+router.put("/:id", async (req, res) => {
     try {
         const recipeId = req.params.id;
         const recipeDetails = await Recipe.findById(recipeId);
-        if (recipeDetails.ownerId != req.userId) {
-            throw new Error('Unauthorized');
-        }
+        // if (recipeDetails.ownerId != req.userId) {
+        //     throw new Error('Unauthorized');
+        // }
         const updateInfo = req.body;
         // new:true - returns the modified value
         const editedRecipe = await Recipe.findByIdAndUpdate(recipeId, updateInfo, {
