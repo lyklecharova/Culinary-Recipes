@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ApiService } from 'src/app/api.service';
 
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -12,11 +13,13 @@ import { ApiService } from 'src/app/api.service';
 export class EditComponent implements OnInit {
   constructor(private api: ApiService, private route: ActivatedRoute) {}
   currentId: string = '';
+
   editRecipe(form: NgForm) {
     if (form.valid) {
       console.log(form.value);
       this.api.editRecipe(form.value, this.currentId).subscribe((result) => {
-        // console.log(result);
+		console.log('Recipe edited successfully:', result);
+		 
       });
     }
   }
@@ -24,3 +27,5 @@ export class EditComponent implements OnInit {
     this.currentId = this.route.snapshot.params['id'];
   }
 }
+
+
