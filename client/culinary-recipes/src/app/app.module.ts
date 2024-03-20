@@ -3,16 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
 import { UserModule } from './pages/user/user.module';
 import { RecipesModule } from './recipes/recipes.module';
-
-
-
+import { PagesModule } from './pages/pages.module';
 
 
 @NgModule({
@@ -24,8 +23,10 @@ import { RecipesModule } from './recipes/recipes.module';
     HttpClientModule,
     CoreModule,
     SharedModule,
+    PagesModule,
     UserModule,
     RecipesModule,
+    RouterModule,
     AppRoutingModule,
   ],
   providers: [],
