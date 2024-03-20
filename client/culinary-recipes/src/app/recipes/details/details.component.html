@@ -2,8 +2,10 @@
     <div class="recipe">
         <div>
             <div class="recipe-header">
+
                 <h1 class="recipe-title">{{recipe?.title}}</h1>
-                <img src= {{recipe?.image}} alt={{recipe?.title}} class="recipe-image" />
+                <img src={{recipe?.image}} alt={{recipe?.title}} class="recipe-image" />
+                <a [routerLink]="['/edit-recipe', currentRecipeId]"><button  class="edit-recipe-button">Edit</button></a>
                 <p class="recipe-description">{{recipe?.description}}</p>
             </div>
 
@@ -31,4 +33,5 @@
             </ol>
         </div>
     </div>
+
 </div>
