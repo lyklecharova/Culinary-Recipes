@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApiService } from 'src/app/api.service';
 
@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./edit.component.css'],
 })
 export class EditComponent implements OnInit {
-  constructor(private api: ApiService, private route: ActivatedRoute) {}
+  constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) {}
   currentId: string = '';
 
   editRecipe(form: NgForm) {
@@ -22,6 +22,8 @@ export class EditComponent implements OnInit {
 		 
       });
     }
+    this.router.navigate(['/recipes'])
+
   }
   ngOnInit(): void {
     this.currentId = this.route.snapshot.params['id'];
