@@ -1,5 +1,5 @@
 <header class="header">
-    <!-- <nav class="navigation-welcome">
+    <nav   class="navigation-welcome">
         <div class="content-logo">
             <a class="logo-link" routerLink="/">Healthy Delicious</a>
         </div>
@@ -8,19 +8,20 @@
             <a class="link" routerLink="/recipes">Recipes</a>
             <a class="link" routerLink="/about-us">About Us</a>
             <a class="link" routerLink="/contacts">Contacts</a>
+            <a class="link" (click)="logout()">Logout</a>
 
         </div>
-    </nav> -->
+    </nav>
 
-    <nav class="navigation-guest">
+    <nav *ngIf="!isLogged" class="navigation-guest">
         <div class="content-logo">
             <a class="logo-link" routerLink="/">Healthy Delicious</a>
         </div>
 
         <div class="content-links">
+            <a class="link" routerLink="/recipes">Recipes</a>
             <a class="link" routerLink="/about-us">About Us</a>
             <a class="link" routerLink="/contacts">Contacts</a>
-
             <a class="link-signIn" routerLink="/login">Login</a>
             <a class="link-signIn" routerLink="/register">Register</a>
         </div>
@@ -42,9 +43,7 @@
                 <a class="link-mobile" routerLink="/recipes">Recipes</a>
                 <a class="link-mobile" routerLink="/about-us">About Us</a>
                 <a class="link" routerLink="/contacts">Contacts</a>
-
-                <a class="link-mobile" href="">Log out</a>
-
+                <a class="linkMobile" (click)="logout()">Logout</a>
             </div>
         </div>
     </nav>
