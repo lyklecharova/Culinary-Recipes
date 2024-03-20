@@ -11,8 +11,6 @@ import { DeleteComponent } from './delete/delete.component';
 
 import { SharedModule } from '../shared/shared.module';
 
-
-
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -21,11 +19,13 @@ import { SharedModule } from '../shared/shared.module';
     EditComponent,
     DeleteComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    SharedModule,
-    FormsModule
+  imports: [CommonModule, RouterModule, SharedModule, FormsModule],
+  exports: [
+    DashboardComponent,
+    CreateComponent,
+    DetailsComponent,
+    EditComponent,
+    DeleteComponent,
   ],
 })
-export class RecipesModule { }
+export class RecipesModule {}
