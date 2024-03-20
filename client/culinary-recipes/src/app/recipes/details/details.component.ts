@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 
 import { ApiService } from 'src/app/api.service';
 import { Recipe } from 'src/app/types/recipe';
@@ -20,4 +20,5 @@ export class DetailsComponent implements OnInit {
       this.currentRecipeId = recipe._id;
     });
   }
+  
 }
