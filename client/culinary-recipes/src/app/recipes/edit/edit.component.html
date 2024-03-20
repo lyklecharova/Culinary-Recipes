@@ -1,34 +1,65 @@
 <div class="container-edit-recipe">
-    <form class="edit-recipe-form" method="post" action="">
+    <form class="edit-recipe-form" #form="ngForm" (ngSubmit)="editRecipe(form)">
         <div>
             <label for="image" class="edit-recipe-label">
                 Image
             </label>
-            <input type="text" class="edit-recipe-input" name="image" placeholder="Upload image..." />
+            <input 
+                type="text" 
+                class="edit-recipe-input" 
+                name="image" 
+                placeholder="Upload image..." 
+                
+            />
         </div>
         <div>
             <label for="title" class="edit-recipe-label">
                 Title
             </label>
-            <input type="text" name="title" placeholder="Enter recipe title..." class="edit-recipe-input" />
+            <input 
+                type="text" 
+                name="title" 
+                placeholder="Enter recipe title..." 
+                class="edit-recipe-input" 
+                ngModel
+                #inputRecipeTitle = 'ngModel'
+                minlength="10"
+            />
         </div>
 
         <div>
             <label for="description" class="edit-recipe-label">
                 Description
             </label>
-            <textarea name="description" rows="4" cols="50" placeholder="Enter recipe description..."
-                class="edit-recipe-textarea"></textarea>
+            <textarea 
+                name="description" 
+                rows="4" cols="50" 
+                placeholder="Enter recipe description..."
+                class="edit-recipe-textarea"
+                ngModel
+                #inputRecipeDescription = 'ngModel'
+                minlength="10"
+            >
+            </textarea>
         </div>
 
         <div>
             <label for="ingredients" class="edit-recipe-label">
                 Ingredients
             </label>
-            <textarea name="ingredients" rows="4" cols="50" placeholder="Enter recipe ingredients..."
-                class="edit-recipe-textarea"></textarea>
+            <textarea 
+                name="ingredients" 
+                rows="4" 
+                cols="50" 
+                placeholder="Enter recipe ingredients..."
+                class="edit-recipe-textarea"
+                ngModel
+                #inputRecipeIngredients= 'ngModel'
+                minlength="10"
+            >
+        </textarea>
         </div>
 
-        <button type="submit" class="edit-recipe-button">Edit</button>
+        <button class="edit-recipe-button">Edit</button>
     </form>
 </div>
