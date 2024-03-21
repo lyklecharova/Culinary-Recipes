@@ -10,11 +10,15 @@
                 required 
                 ngModel
                 #inputRecipeImage = 'ngModel'
-                minlength="10"
+                [pattern]="imagePattern"
             />
 
             <ng-container *ngIf="inputRecipeImage.touched && inputRecipeImage.hasError('required')">
                 <p class="error">Image is required</p>
+            </ng-container>
+
+            <ng-container *ngIf="inputRecipeImage.touched && inputRecipeImage.hasError('pattern')">
+                <p class="error">Please enter a valid URL</p> 
             </ng-container>
     
         </div>
@@ -88,5 +92,10 @@
         </div>
 
         <button  class="create-recipe-button">Create</button>
+
+        <!-- Show overall error message -->
+        <ng-container *ngIf="form.submitted && form.invalid">
+            <p class="error">Please fill in all required fields.</p>
+        </ng-container>
     </form>
 </div>
