@@ -13,3 +13,15 @@ Technologies used in the project:
 <li>Node.js, Express.js and MongoDB
 <li>Using Font Awesome for icon</li>
 </ul>
+
+# Run application:
+     * Open terminal "client" and run:
+        * `cd culinary-recipies/client` -> `npm install` (or `npm i`)
+        * `npm run dev`
+        *  Which opens the app at http://localhost:4200 in your browser.
+
+# Run RESTful API server:
+     * Open terminal "server" and run:
+        * `cd culinary-recipies/server` -> `npm install` (or `npm i`)
+        * `npm run csr`
+        * server is listening at http://localhost:3030
