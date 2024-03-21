@@ -93,6 +93,15 @@
     background-color: #FF5D5D;
 }
 
+.error {
+    font-weight: bold;
+    color: darkred;
+    position: static;
+    font-size: 14px;
+    margin: 10px;
+    text-transform: uppercase;
+}
+
 @media screen and (max-width: 370px) {
     .edit-recipe-form {
         width: 90%;
