@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 95vh;
 }
 
 .container-create-recipe:before {
@@ -33,7 +33,7 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 20px 1px rgba(119, 136, 153, 0.719);
-    height: auto;
+    height: 10 auto;
 }
 
 .create-recipe-form>div {
@@ -89,6 +89,15 @@
 
 .create-recipe-button:hover {
     background-color: #FF5D5D;
+}
+
+.error {
+    font-weight: bold;
+    color: darkred;
+    position: static;
+    font-size: 14px;
+    margin: 10px;
+    text-transform: uppercase;
 }
 
 @media screen and (max-width: 370px) {
