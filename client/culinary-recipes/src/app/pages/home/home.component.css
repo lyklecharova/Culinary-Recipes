@@ -130,7 +130,7 @@
     font-size: 20px;
 }
 
-/* .about-recipe-link {
+.about-recipe-link {
     font-size: 22px;
     text-transform: uppercase;
     padding: 10px 35px;
@@ -138,11 +138,12 @@
     color: white;
     letter-spacing: 1.5px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .about-recipe-link:hover {
     background-color: #FF5D5D;
-} */
+}
 
 .about-recipe-img {
     height: 400px;
