@@ -32,6 +32,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-shadow: 1px 1px 10px white;
+    cursor: pointer;
 }
 
 .link:hover {
