@@ -10,7 +10,13 @@
                 required 
                 ngModel
                 #inputRecipeImage = 'ngModel'
+                minlength="10"
             />
+
+            <ng-container *ngIf="inputRecipeImage.touched && inputRecipeImage.hasError('required')">
+                <p class="error">Image is required</p>
+            </ng-container>
+    
         </div>
 
         <div>
@@ -25,6 +31,13 @@
                 #inputRecipeTitle = 'ngModel'
                 minlength="10"
             />
+            <ng-container *ngIf="inputRecipeTitle.touched && inputRecipeTitle.hasError('required')">
+                <p class="error">Title is required</p>
+            </ng-container>
+
+            <ng-container *ngIf="inputRecipeTitle.touched && inputRecipeTitle.hasError('minlength')">
+                <p class="error">Title must be at least 10 characters long</p>
+            </ng-container>
         </div>
 
         <div>
@@ -41,6 +54,13 @@
                 minlength="10"
             >
             </textarea>
+            <ng-container *ngIf="inputRecipeDescription.touched && inputRecipeDescription.hasError('required')">
+                <p class="error">Description is required</p>
+            </ng-container>
+
+            <ng-container *ngIf="inputRecipeDescription.touched && inputRecipeDescription.hasError('minlength')">
+                <p class="error">Description must be at least 10 characters long</p>
+            </ng-container>
         </div>
 
         <div>
@@ -57,6 +77,13 @@
                 minlength="10"
             >
             </textarea>
+            <ng-container *ngIf="inputRecipeIngredients.touched && inputRecipeIngredients.hasError('required')">
+                <p class="error">Ingredients are required</p>
+            </ng-container>
+            
+            <ng-container *ngIf="inputRecipeIngredients.touched && inputRecipeIngredients.hasError('minlength')">
+                <p class="error">Ingredients must be at least 10 characters long</p>
+            </ng-container>
 
         </div>
 
