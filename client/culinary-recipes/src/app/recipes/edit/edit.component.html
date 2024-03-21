@@ -62,6 +62,22 @@
         </textarea>
         </div>
 
+        <div>
+            <label for="instructions" class="edit-recipe-label">Instructions</label>
+            <textarea 
+                name="instructions" 
+                rows="4" 
+                cols="50" 
+                placeholder="Enter recipe instructions..."
+                class="edit-recipe-textarea"
+                ngModel
+                #inputRecipeInstructions="ngModel"
+                minlength="10"
+            ></textarea>
+        </div>
+
+       
+
         <button class="edit-recipe-button">Edit</button>
     </form>
 </div>
