@@ -91,6 +91,29 @@
 
         </div>
 
+        <div>
+            <label for="instructions" class="create-recipe-label">Instructions</label>
+            <textarea 
+                name="instructions" 
+                rows="4" 
+                cols="50" 
+                placeholder="Enter recipe instructions..."
+                class="create-recipe-textarea"
+                required 
+                ngModel
+                #inputRecipeInstructions="ngModel"
+                minlength="10"
+            >
+            </textarea>
+            <ng-container *ngIf="inputRecipeInstructions.touched && inputRecipeInstructions.hasError('required')">
+                <p class="error">Instructions are required</p>
+            </ng-container>
+            
+            <ng-container *ngIf="inputRecipeInstructions.touched && inputRecipeInstructions.hasError('minlength')">
+                <p class="error">Instructions must be at least 10 characters long</p>
+            </ng-container>
+        </div>
+
         <button  class="create-recipe-button">Create</button>
 
         <!-- Show overall error message -->
