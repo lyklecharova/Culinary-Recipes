@@ -5,6 +5,10 @@ Project is Single Page Application (SPA) created for books using React for the F
 <p id="description">"Culinary-Recipes" provides a community space for culinary enthusiasts, where they can share their passion for food and be inspired by the creativity of others.</p>
 <p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/home-page.png" alt="home" width="960"></p>
 
+<h2>Project Screenshots:</h2>
+<p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/recipies-page-with-content.png" alt="catalog" width="960" height="540/"></p>
+
+
 <h2>💻 Built with</h2>
 Technologies used in the project:
 <ul>
