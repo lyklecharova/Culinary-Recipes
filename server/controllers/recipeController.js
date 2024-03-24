@@ -10,11 +10,10 @@ router.post("/add", async (req, res) => {
     try {
         console.log(recipeDetails);
         await Recipe.create(recipeDetails);
-        // await Recipe.create({ ...recipeDetails, ownerId: req.userId });
     } catch (error) {
         console.log(error);
     }
-    res.status(200).json({Send:"success"});
+    res.status(200).json({ Send: "success" });
 });
 
 router.get("/", async (req, res) => {
