@@ -17,6 +17,7 @@ router.post('/register', isGuest, async (req, res) => {
         const user = new User({ email, password: hashedPassword });
         await user.save();
         res.status(201).json({ message: 'User registered successfully' });
+      
     } catch (error) {
         console.log(error)
         res.status(500).json(error);
@@ -45,7 +46,7 @@ router.post('/login', isGuest, async (req, res) => {
 });
 
 // User logout - Logged in
-router.get('/logout', isLogUser, async (req, res, next) => {
+router.get('/logout', async (req, res, next) => {
     try {
 
         const userToken = req.userToken;
