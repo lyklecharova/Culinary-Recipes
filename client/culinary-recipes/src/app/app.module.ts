@@ -12,11 +12,13 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './pages/user/user.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { PagesModule } from './pages/pages.module';
+import { AuthComponent } from './auth/auth.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
