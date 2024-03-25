@@ -1,10 +1,11 @@
-.recipe-header{
+.recipe-header {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 10px;
 }
+
 .container-recipe {
     display: flex;
     align-items: center;
@@ -45,8 +46,9 @@
 }
 
 .ingredient-list {
-    margin-top: 20px;
+    margin-top: 30px;
     overflow-wrap: anywhere;
+    
 }
 
 .ingredient-list h2,
@@ -55,12 +57,26 @@
     border-bottom: 2px solid #ccc;
     padding-bottom: 5px;
     overflow-wrap: anywhere;
+
+    columns: 200px 2;
+    column-gap: 40px;
+    padding: 22px;
+
+ 
+
 }
 
 .ingredient-list ul,
 .instruction-list ol {
     margin-top: 10px;
     padding-left: 20px;
+
+    columns: 200px 2;
+    column-gap: 40px;
+    padding: 22px;
+
+
+    background-color: rgb(240, 228, 213);
 }
 
 .ingredient-list li,
