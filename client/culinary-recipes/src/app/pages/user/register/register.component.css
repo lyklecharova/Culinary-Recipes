@@ -19,9 +19,6 @@
     background-repeat: no-repeat;
     z-index: -1;
     opacity: 0.4;
-
-
-
 }
 
 .register-form {
@@ -92,4 +89,13 @@
 
     left: 156px;
     bottom: -100px
+}
+
+.error {
+    font-weight: bold;
+    color: darkred;
+    position: static;
+    font-size: 14px;
+    margin: 10px;
+    text-transform: uppercase;
 }
