@@ -93,3 +93,12 @@
     left: 156px;
     bottom: -100px
 }
+
+.error {
+    font-weight: bold;
+    color: darkred;
+    position: static;
+    font-size: 14px;
+    margin: 10px;
+    text-transform: uppercase;
+}
