@@ -55,14 +55,10 @@ router.put("/:id", async (req, res) => {
 
 // Delete recipe - Logged and owner
 
-router.delete("/:id", isLogUser, async (req, res) => {
+router.delete("/:id", async (req, res) => {
     try {
         const recipeId = req.params.id;
         const recipeDetails = await Recipe.findById(recipeId);
-        if (recipeDetails.ownerId != req.userId) {
-            throw new Error('Unauthorized');
-        }
-
         await Recipe.findByIdAndDelete(recipeId);
         res.json({ message: "Delete succesfully" });
     } catch (error) {
