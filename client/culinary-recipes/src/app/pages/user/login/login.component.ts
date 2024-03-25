@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
- 
+
 import { UserService } from '../user.service';
 import { EMAIL_DOMAINS } from 'src/app/constants/constants';
 
@@ -19,7 +19,12 @@ export class LoginComponent {
       return;
     }
 
-    this.userService.login();
-    this.router.navigate(['/home']);
+    const { email, password } = form.value;
+
+    this.userService.login(email, password).subscribe((token) => {
+      localStorage.setItem('token', token.token);
+      localStorage.setItem('userId', token.userId);
+      this.router.navigateByUrl('/');
+    });
   }
 }
