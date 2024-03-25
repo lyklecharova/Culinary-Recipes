@@ -1,39 +1,53 @@
-import { Injectable } from '@angular/core';
-import { UserForAuth } from 'src/app/types/user';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Subscription, tap } from 'rxjs';
 
+import { UserForAuth } from 'src/app/types/user';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class UserService implements OnDestroy {
+  api = 'http://localhost:3030';
+
+  private user$$ = new BehaviorSubject(<UserForAuth | undefined>undefined);
+  private user$ = this.user$$.asObservable();
+
   user: UserForAuth | undefined;
   USER_KEY = '[user]';
+  userSubscription: Subscription;
 
   get isLogged(): boolean {
     return !!this.user;
   }
 
-  constructor() {
-    try {
-      const lsUser = localStorage.getItem(this.USER_KEY) || '';
-      this.user = JSON.parse(lsUser);
-    } catch (error) {
-      this.user = undefined;
-    }
+  constructor(private http: HttpClient) {
+    this.userSubscription = this.user$.subscribe((user) => {
+      this.user = user;
+    });
   }
 
-  login() {
-    this.user = {
-      id: '5fa64ca72183ce1728ff3726',
-      email: 'petkoivanov@abv.bg',
-      password: '123123',
-    };
+  register(email: string, password: string, confirmPassword: string) {
+    return this.http
+      .post<UserForAuth>(`${this.api}/user/register`, {
+        email,
+        password,
+        confirmPassword,
+      })
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
 
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  login(email: string, password: string) {
+    return this.http
+      .post<UserForAuth>(`${this.api}/user/login`, { email, password })
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
   logout() {
-    this.user = undefined;
-    localStorage.removeItem(this.USER_KEY);
+    this.user$$.next(undefined);
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
   }
 }
