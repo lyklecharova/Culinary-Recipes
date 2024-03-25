@@ -1,16 +1,18 @@
-<div  class="container-dashboard">
+<div class="container-dashboard">
 
-  <div  class="content-dashboard-list">
-    <div *ngFor="let recipe of recipes" class="dashboard-content">
-      <img class="dashboard-img" src={{recipe.image}} alt={{recipe.title}} />
-      <div class="dashboard-information">
-        <h3 class="dashboard-information-title">{{recipe.title}}</h3>
-        <p class="dashboard-information-description">
-          {{recipe.description}}
-        </p>
-      </div>
-      <a [routerLink]="['/recipe', recipe._id]"> <button class="dashboard-button">Whole Recipe</button></a>
+	<div class="content-dashboard-list">
+		<div *ngFor="let recipe of recipes" class="dashboard-content">
+			<img class="dashboard-img" src={{recipe.image}} alt={{recipe.title}} />
+			<div class="dashboard-information">
+				<h3 class="dashboard-information-title">{{recipe.title}}
+					{{ recipe.title.length > 10 ? recipe.title.slice(0, 10) + '...' : recipe.title }}
+				</h3>
+				<p class="dashboard-information-description">
+					{{ recipe.description.length > 10 ? recipe.description.slice(0, 10) + '...' : recipe.description }}
+				</p>
+			</div>
+			<a [routerLink]="['/recipe', recipe._id]"> <button class="dashboard-button">Whole Recipe</button></a>
 
-    </div>
-  </div>
+		</div>
+	</div>
 </div>
