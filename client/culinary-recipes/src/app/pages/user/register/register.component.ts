@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  errorMessage1 = '';
+  errorMessage2 = '';
   form = this.fb.group({
     //controls
     email: ['', [Validators.required, emailValidator(EMAIL_DOMAINS)]],
@@ -40,11 +42,21 @@ export class RegisterComponent {
 
     const { email, passGroup: { password, confirmPassword } = {} } =
       this.form.value;
-    this.userService
-      .register(email!, password!, confirmPassword!)
-      .subscribe(() => {
+    this.userService.register(email!, password!, confirmPassword!).subscribe(
+      () => {
         this.router.navigateByUrl('/');
-      });
+      },
+      (error) => {
+        if (error === 'User already exists') {
+          this.errorMessage1 = 'A user with this email already exists.';
+          this.errorMessage2 =
+            'Please use a different email or log in with your existing account.';
+        } else {
+          this.errorMessage1 = 'An error occurred during registration.';
+          this.errorMessage2 = 'Please double-check your email and password';
+        }
+      }
+    );
 
     console.log(this.form.value);
   }
