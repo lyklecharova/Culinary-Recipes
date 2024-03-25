@@ -12,6 +12,8 @@ import { EMAIL_DOMAINS } from 'src/app/constants/constants';
 })
 export class LoginComponent {
   domains = EMAIL_DOMAINS;
+  errorMessage: string = '';
+
   constructor(private userService: UserService, private router: Router) {}
 
   login(form: NgForm) {
@@ -25,6 +27,16 @@ export class LoginComponent {
       localStorage.setItem('token', token.token);
       localStorage.setItem('userId', token.userId);
       this.router.navigateByUrl('/');
-    });
+    },
+    (error) => {
+        // Handle login error
+        console.error('Login error:', error);
+        if (error === 'Invalid email or password') {
+          this.errorMessage = 'Invalid email or password';
+        } else {
+          this.errorMessage = 'Please check your email or password';
+        }
+      }
+    );
   }
 }
