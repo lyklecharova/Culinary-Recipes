@@ -7,7 +7,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
-import { DeleteComponent } from './delete/delete.component';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -17,7 +16,6 @@ import { SharedModule } from '../shared/shared.module';
     CreateComponent,
     DetailsComponent,
     EditComponent,
-    DeleteComponent,
   ],
   imports: [CommonModule, RouterModule, SharedModule, FormsModule],
   exports: [
@@ -25,7 +23,6 @@ import { SharedModule } from '../shared/shared.module';
     CreateComponent,
     DetailsComponent,
     EditComponent,
-    DeleteComponent,
   ],
 })
 export class RecipesModule {}
