@@ -14,68 +14,38 @@ import { Recipe } from 'src/app/types/recipe';
 export class EditComponent implements OnInit {
   imagePattern = URL_PATTERN;
   currentId: string = '';
+  recipe: Recipe = {
+    title: '',
+    description: '',
+    ingredients: [],
+    image: '',
+    instructions: [],
+  };
 
-  constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) {}
-
-  editRecipe(form: NgForm): boolean {
-    if (form.valid) {
-      // Кастване на form.value към тип 'Recipe'
-      const formValues = form.value as Recipe;
-
-      // Проверка за празни полета
-      const isAnyFieldEmpty = Object.values(formValues).some((value: any) => {
-        if (typeof value === 'string') {
-          return value.trim() === '';
-        }
-        return false;
-      });
-
-      if (isAnyFieldEmpty) {
-        // Показва грешка, ако има празни полета
-        console.log('Please fill in all fields.');
-        return false;
-      }
-
-      // Проверка за невалидни данни в description и ingredients
-      if (
-        typeof formValues.description === 'string' &&
-        formValues.description.trim().length < 10
-      ) {
-        console.log('Description must be at least 10 characters long.');
-        return false;
-      }
-
-      // Съединява елементите на масива ingredients в един низ с интервал между тях
-      const ingredientsString = Array.isArray(formValues.ingredients)
-        ? formValues.ingredients.join(' ')
-        : formValues.ingredients;
-
-      if (
-        typeof ingredientsString === 'string' &&
-        ingredientsString.trim().length < 10
-      ) {
-        console.log('Ingredients must be at least 10 characters long.');
-        return false;
-      }
-
-      // Изпращане на данните до API
-      this.api.createRecipe(form.value).subscribe((result) => {
-        console.log('Recipe created successfully:', result);
-        // Редирект след успешно създаване на рецепта
-        this.router.navigate(['/recipes']);
-      });
-
-      // Връщаме true, за да покажем, че процесът е успешен
-      return true;
-    } else {
-      console.log('Please fill in all required fields.');
-      // Връщаме false, за да предотвратим навигацията към следващата страница
-      return false;
-    }
-  }
+  constructor(
+    private api: ApiService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.currentId = this.route.snapshot.params['id'];
+    // Load the recipe data for editing
+    this.api.getOneRecipe(this.currentId).subscribe((recipe) => {
+      this.recipe = recipe;
+    });
+  }
+
+  editRecipe(form: NgForm): void {
+    if (form.valid) {
+      // Submit the edited recipe
+      this.api.editRecipe(this.recipe, this.currentId).subscribe((result) => {
+        console.log('Recipe edited successfully:', result);
+        // Redirect after successful recipe edit
+        this.router.navigate(['/recipes']);
+      });
+    } else {
+      console.log('Please fill in all required fields.');
+    }
   }
 }
-
