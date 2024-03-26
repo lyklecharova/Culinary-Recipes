@@ -9,6 +9,7 @@ Project is Single Page Application (SPA) created for books using React for the F
 <p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/recipes-page-with-content.png" alt="catalog" width="960" height="540/"></p>
 <p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/detail-page1.png" alt="detail-page" width="960" height="540/"></p>
 <p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/detail-page-ingredients.png" alt="detail-page-ingredients" width="960" height="540/"></p>
+<p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/detail-page-instructions.png" alt="detail-page-instructions" width="960" height="540/"></p>
 
 
 <h2>💻 Built with</h2>
