@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { EMAIL_DOMAINS } from 'src/app/constants/constants';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   errorMessage1 = '';
   errorMessage2 = '';
   form = this.fb.group({
@@ -34,6 +34,14 @@ export class RegisterComponent {
     private userService: UserService,
     private router: Router
   ) {}
+
+  // Проверка дали потребителят е вече логнат, ако е, пренасочва към началната страница
+
+  ngOnInit(): void {
+    if (this.userService.isLogged) {
+      this.router.navigateByUrl('/');
+    }
+  }
 
   register(): void {
     if (this.form.invalid) {
