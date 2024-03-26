@@ -99,3 +99,12 @@
 .dashboard-button:hover {
     background-color: #FF5D5D;
 }
+
+.error {
+    font-weight: bold;
+    color: rgb(14, 0, 0);
+    position: static;
+    font-size: 25px;
+    margin: 10px;
+    text-transform: uppercase;
+}
