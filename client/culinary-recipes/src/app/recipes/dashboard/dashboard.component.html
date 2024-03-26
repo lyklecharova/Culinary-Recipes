@@ -1,18 +1,22 @@
 <div class="container-dashboard">
-
 	<div class="content-dashboard-list">
-		<div *ngFor="let recipe of recipes" class="dashboard-content">
-			<img class="dashboard-img" src={{recipe.image}} alt={{recipe.title}} />
-			<div class="dashboard-information">
-				<h3 class="dashboard-information-title">{{recipe.title}}
-					{{ recipe.title.length > 10 ? recipe.title.slice(0, 10) + '...' : recipe.title }}
-				</h3>
-				<p class="dashboard-information-description">
-					{{ recipe.description.length > 10 ? recipe.description.slice(0, 10) + '...' : recipe.description }}
-				</p>
+		<ng-container *ngIf="recipes.length > 0; else noRecipes">
+			<div class="dashboard-content" *ngFor="let recipe of recipes">
+				<img class="dashboard-img" src={{recipe.image}} alt={{recipe.title}} />
+				<div class="dashboard-information">
+					<h3 class="dashboard-information-title">{{recipe.title}}
+						{{ recipe.title.length > 10 ? recipe.title.slice(0, 10) + '...' : recipe.title }}
+					</h3>
+					<p class="dashboard-information-description">
+						{{ recipe.description.length > 10 ? recipe.description.slice(0, 10) + '...' : recipe.description
+						}}
+					</p>
+				</div>
+				<a [routerLink]="['/recipe', recipe._id]"> <button class="dashboard-button">Whole Recipe</button></a>
 			</div>
-			<a [routerLink]="['/recipe', recipe._id]"> <button class="dashboard-button">Whole Recipe</button></a>
-
-		</div>
+		</ng-container>
+		<ng-template #noRecipes>
+			<h2 class="error">Sorry, but you can not find any recipes yet.</h2>
+		</ng-template>
 	</div>
 </div>
