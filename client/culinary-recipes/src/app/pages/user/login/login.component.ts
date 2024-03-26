@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -10,11 +10,19 @@ import { EMAIL_DOMAINS } from 'src/app/constants/constants';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   domains = EMAIL_DOMAINS;
   errorMessage: string = '';
 
   constructor(private userService: UserService, private router: Router) {}
+
+  // Проверка дали потребителят е вече логнат, ако е, пренасочва към началната страница
+
+  ngOnInit(): void {
+    if (this.userService.isLogged) {
+      this.router.navigateByUrl('/');
+    }
+  }
 
   login(form: NgForm) {
     if (form.invalid) {
@@ -23,12 +31,13 @@ export class LoginComponent {
 
     const { email, password } = form.value;
 
-    this.userService.login(email, password).subscribe((token) => {
-      localStorage.setItem('token', token.token);
-      localStorage.setItem('userId', token.userId);
-      this.router.navigateByUrl('/');
-    },
-    (error) => {
+    this.userService.login(email, password).subscribe(
+      (token) => {
+        localStorage.setItem('token', token.token);
+        localStorage.setItem('userId', token.userId);
+        this.router.navigateByUrl('/');
+      },
+      (error) => {
         // Handle login error
         console.error('Login error:', error);
         if (error === 'Invalid email or password') {
