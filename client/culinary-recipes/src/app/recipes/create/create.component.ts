@@ -56,13 +56,15 @@ export class CreateComponent {
         console.log('Ingredients must be at least 10 characters long.');
         return false;
       }
-
+      let userId = localStorage.getItem('userId');
       // Изпращане на данните до API
-      this.api.createRecipe(form.value).subscribe((result) => {
-        console.log('Recipe created successfully:', result);
-        // Редирект след успешно създаване на рецепта
-        this.router.navigate(['/recipes']);
-      });
+      this.api
+        .createRecipe({ ...form.value, ownerId: userId })
+        .subscribe((result) => {
+          console.log('Recipe created successfully:', result);
+          // Редирект след успешно създаване на рецепта
+          this.router.navigate(['/recipes']);
+        });
 
       // Връщаме true, за да покажем, че процесът е успешен
       return true;
@@ -73,4 +75,3 @@ export class CreateComponent {
     }
   }
 }
-
