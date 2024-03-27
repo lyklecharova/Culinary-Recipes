@@ -5,22 +5,20 @@ import { environment } from 'src/environments/environment';
 import { Recipe } from './types/recipe';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getRecipes(){
-    const { API_URL } = environment;	
+  getRecipes() {
+    const { API_URL } = environment;
     return this.http.get<Recipe[]>(`${API_URL}/recipe`);
   }
-  
+
   createRecipe(recipe: Recipe) {
     const { API_URL } = environment;
-    const payload = recipe ;
-    // Use correct interpolation for API_URL
-    return this.http.post<Recipe>(`${API_URL}/recipe/add`, payload); 
+    const payload = recipe;
+    return this.http.post<Recipe>(`${API_URL}/recipe/add`, payload);
   }
 
   getOneRecipe(id: string) {
@@ -28,10 +26,20 @@ export class ApiService {
     return this.http.get<Recipe>(`${API_URL}/recipe/${id}`);
   }
 
-  editRecipe(recipe:Recipe,id: string) {
+  editRecipe(recipe: Recipe, id: string) {
     const { API_URL } = environment;
-    const payload = recipe ;
-    // Use correct interpolation for API_URL
-    return this.http.put<Recipe>(`${API_URL}/recipe/${id}`,payload); 
+    // Създава payload обект, който съдържа данните за рецептата
+    const payload = recipe;
+    // Изпраща PUT заявка към API за редактиране на съществуваща рецепта, като използва адреса на API, идентификатора на рецептата и payload обекта с новите данни за рецептата
+    return this.http.put<Recipe>(`${API_URL}/recipe/${id}`, payload);
+  }
+
+  deleteRecipe(id: string) {
+    // Взема JWT токена от локалното съхранение
+    const token = localStorage.getItem('token');
+    const headers = { Authorization: token };
+    const { API_URL } = environment;
+    // Изпраща DELETE заявка към сървъра за изтриване на рецептата със зададеното ID
+    return this.http.delete<Recipe>(`${API_URL}/recipe/${id}`);
   }
 }
