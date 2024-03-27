@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { RouterModule, Routes } from '@angular/router';
 
+import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './recipes/dashboard/dashboard.component';
 import { CreateComponent } from './recipes/create/create.component';
 import { EditComponent } from './recipes/edit/edit.component';
@@ -11,66 +11,35 @@ import { LoginComponent } from './pages/user/login/login.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { DetailsComponent } from './recipes/details/details.component';
-
+import { AuthenicateComponent } from './authenicate/authenicate.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    component: HomeComponent,
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-    // canActivate: [AuthGuard],
-    // data: {
-    //   guest: true,
-    // },
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    // canActivate: [AuthGuard],
-    // data: {
-    //   guest: true,
-    // },
-  },
-  {
-    path: 'about-us',
-    component: AboutUsComponent,
+  { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
 
-  },
-  {
-    path: 'contacts',
-    component: ContactsComponent,
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'contacts', component: ContactsComponent },
 
-  },
-  {
-    path: 'recipes',
-    component: DashboardComponent,
+  { path: 'recipes', component: DashboardComponent },
 
-  },
   {
     path: 'create-recipe',
     component: CreateComponent,
-
+    canActivate: [AuthenicateComponent],
   },
+  { path: 'recipe/:id', component: DetailsComponent },
   {
-    path: 'recipe/:id',
-    component: DetailsComponent,
-
-  },
-  {
-    path: 'edit-recipe',
+    path: 'edit-recipe/:id',
     component: EditComponent,
-
+    canActivate: [AuthenicateComponent],
   },
   { path: '**', redirectTo: '/404' },
   { path: '404', component: ErrorComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
