@@ -10,7 +10,7 @@
                 name="image" 
                 placeholder="Upload image..." 
                 required 
-                [(ngModel)]="recipe.image"
+                ngModel
                 #inputRecipeImage="ngModel"
                 [pattern]="imagePattern"
             />
@@ -33,7 +33,7 @@
                 name="title" 
                 placeholder="Enter recipe title..." 
                 required 
-                [(ngModel)]="recipe.title"
+                ngModel
                 #inputRecipeTitle="ngModel"
                 minlength="10"
             />
@@ -54,7 +54,7 @@
                 name="description" 
                 placeholder="Enter recipe description..." 
                 required 
-                [(ngModel)]="recipe.description"
+                ngModel
                 #inputRecipeDescription="ngModel"
                 minlength="10"
             ></textarea>
@@ -76,7 +76,7 @@
                 name="ingredients" 
                 placeholder="Enter recipe ingredients..." 
                 required 
-                [(ngModel)]="recipe.ingredients"
+                ngModel
                 #inputRecipeIngredients="ngModel"
                 minlength="10"
             ></textarea>
@@ -95,7 +95,7 @@
                 name="instructions" 
                 placeholder="Enter recipe instructions..." 
                 required 
-                [(ngModel)]="recipe.instructions"
+                ngModel
                 #inputRecipeInstructions="ngModel"
                 minlength="10"
             ></textarea>
