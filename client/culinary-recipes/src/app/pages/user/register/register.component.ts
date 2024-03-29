@@ -63,9 +63,16 @@ export class RegisterComponent implements OnInit {
           this.errorMessage1 = 'An error occurred during registration.';
           this.errorMessage2 = 'Please double-check your email and password';
         }
+        setTimeout(()=>{
+          this.clearError();
+        },5000)
       }
     );
 
     console.log(this.form.value);
+  }
+  clearError() {
+    this.errorMessage1 = '';
+    this.errorMessage2 = '';
   }
 }
