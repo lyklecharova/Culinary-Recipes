@@ -45,7 +45,14 @@ export class LoginComponent implements OnInit {
         } else {
           this.errorMessage = 'Please check your email or password';
         }
+        setTimeout(()=>{
+          this.clearError();
+        },3000)
       }
+      
     );
+  }
+  clearError() {
+    this.errorMessage = '';
   }
 }
