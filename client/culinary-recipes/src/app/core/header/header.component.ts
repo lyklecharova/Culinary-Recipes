@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { UserService } from 'src/app/pages/user/user.service';
 
 @Component({
@@ -9,15 +10,17 @@ import { UserService } from 'src/app/pages/user/user.service';
 })
 export class HeaderComponent {
   constructor(private user: UserService, private router: Router) {}
-  // isLogged: boolean = true;
   get isLogged(): boolean {
-    console.log(this.user.isLogged, ' RETUNR LOGIN INFOOOOO');
-    return this.user.isLogged
+    // Връща стойността на свойството isLogged
+    return this.user.isLogged;
   }
 
   logout() {
     this.user.logout();
+    // Премахване на идентификатора на потребителя от localStorage
     localStorage.removeItem('userId');
+    // Премахване на токена за достъп от localStorage
     localStorage.removeItem('token');
   }
 }
+ Г
