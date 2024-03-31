@@ -1,116 +1,124 @@
 <div class="container-edit-recipe">
-    <form class="edit-recipe-form" #form="ngForm" (ngSubmit)="editRecipe(form)">
-        <div>
-            <label for="image" class="edit-recipe-label">
-                Image
-            </label>
-            <input 
-                type="text" 
-                class="edit-recipe-input" 
-                name="image" 
-                placeholder="Upload image..." 
-                required 
-                ngModel
-                #inputRecipeImage="ngModel"
-                [pattern]="imagePattern"
-            />
-            <ng-container *ngIf="inputRecipeImage.touched && inputRecipeImage.hasError('required')">
-                <p class="error">Image is required</p>
-            </ng-container>
+	<form class="edit-recipe-form" #form="ngForm" (ngSubmit)="editRecipe(form)">
+		<div>
+			<label for="image" class="edit-recipe-label">
+				Image
+			</label>
+			<input 
+				type="text" 
+				class="edit-recipe-input" 
+				name="image" 
+				placeholder="Upload image..." 
+				required
+				[(ngModel)]="recipe.image" 
+				ngModel 
+				#inputRecipeImage="ngModel" 
+				[pattern]="imagePattern" 
+			/>
+				<ng-container *ngIf="inputRecipeImage.touched && inputRecipeImage.hasError('required')">
+					<p class="error">Image is required</p>
+				</ng-container>
 
-            <ng-container *ngIf="inputRecipeImage.touched && inputRecipeImage.hasError('pattern')">
-                <p class="error">Please enter a valid URL</p> 
-            </ng-container>
-        </div>
+				<ng-container *ngIf="inputRecipeImage.touched && inputRecipeImage.hasError('pattern')">
+					<p class="error">Please enter a valid URL</p>
+				</ng-container>
 
-        <div>
-            <label for="title" class="edit-recipe-label">
-                Title
-            </label>
-            <input 
-                type="text" 
-                class="edit-recipe-input" 
-                name="title" 
-                placeholder="Enter recipe title..." 
-                required 
-                ngModel
-                #inputRecipeTitle="ngModel"
-                minlength="10"
-            />
-            <ng-container *ngIf="inputRecipeTitle.touched && inputRecipeTitle.hasError('required')">
-                <p class="error">Title is required</p>
-            </ng-container>
-            <ng-container *ngIf="inputRecipeTitle.touched && inputRecipeTitle.hasError('minlength')">
-                <p class="error">Title must be at least 10 characters long</p>
-            </ng-container>
-        </div>
+		</div>
 
-        <div>
-            <label for="description" class="edit-recipe-label">
-                Description
-            </label>
-            <textarea 
-                class="edit-recipe-textarea" 
-                name="description" 
-                placeholder="Enter recipe description..." 
-                required 
-                ngModel
-                #inputRecipeDescription="ngModel"
-                minlength="10"
-            ></textarea>
-            <ng-container *ngIf="inputRecipeDescription.touched && inputRecipeDescription.hasError('required')">
-                <p class="error">Description is required</p>
-            </ng-container>
-            <ng-container *ngIf="inputRecipeDescription.touched && inputRecipeDescription.hasError('minlength')">
-                <p class="error">Description must be at least 10 characters long</p>
-            </ng-container>
-        </div>
+		<div>
+			<label for="title" class="edit-recipe-label">
+				Title
+			</label>
+			<input 
+				type="text" 
+				class="edit-recipe-input" 
+				name="title" 
+				placeholder="Enter recipe title..." 
+				required
+				[(ngModel)]="recipe.title" 
+				ngModel 
+				#inputRecipeTitle="ngModel" 
+				minlength="10" 
+			/>
+				<ng-container *ngIf="inputRecipeTitle.touched && inputRecipeTitle.hasError('required')">
+					<p class="error">Title is required</p>
+				</ng-container>
+				<ng-container *ngIf="inputRecipeTitle.touched && inputRecipeTitle.hasError('minlength')">
+					<p class="error">Title must be at least 10 characters long</p>
+				</ng-container>
+		</div>
 
-        <!-- Add similar input fields for ingredients and instructions -->
-        <div>
-            <label for="ingredients" class="edit-recipe-label">
-                Ingredients
-            </label>
-            <textarea 
-                class="edit-recipe-textarea" 
-                name="ingredients" 
-                placeholder="Enter recipe ingredients..." 
-                required 
-                ngModel
-                #inputRecipeIngredients="ngModel"
-                minlength="10"
-            ></textarea>
-            <ng-container *ngIf="inputRecipeIngredients.touched && inputRecipeIngredients.hasError('required')">
-                <p class="error">Ingredients are required</p>
-            </ng-container>
-            <ng-container *ngIf="inputRecipeIngredients.touched && inputRecipeIngredients.hasError('minlength')">
-                <p class="error">Ingredients must be at least 10 characters long</p>
-            </ng-container>
-        </div>
+		<div>
+			<label for="description" class="edit-recipe-label">
+				Description
+			</label>
+			<textarea 
+				class="edit-recipe-textarea" 
+				name="description" 
+				placeholder="Enter recipe description..." 
+				required
+				[(ngModel)]="recipe.description" 
+				ngModel 
+				#inputRecipeDescription="ngModel" 
+				minlength="10">
+			</textarea>
+				<ng-container *ngIf="inputRecipeDescription.touched && inputRecipeDescription.hasError('required')">
+					<p class="error">Description is required</p>
+				</ng-container>
 
-        <div>
-            <label for="instructions" class="edit-recipe-label">Instructions</label>
-            <textarea 
-                class="edit-recipe-textarea" 
-                name="instructions" 
-                placeholder="Enter recipe instructions..." 
-                required 
-                ngModel
-                #inputRecipeInstructions="ngModel"
-                minlength="10"
-            ></textarea>
-            <ng-container *ngIf="inputRecipeInstructions.touched && inputRecipeInstructions.hasError('required')">
-                <p class="error">Instructions are required</p>
-            </ng-container>
-            <ng-container *ngIf="inputRecipeInstructions.touched && inputRecipeInstructions.hasError('minlength')">
-                <p class="error">Instructions must be at least 10 characters long</p>
-            </ng-container>
-        </div>
-          
-        <button class="edit-recipe-button">Edit</button>
+				<ng-container *ngIf="inputRecipeDescription.touched && inputRecipeDescription.hasError('minlength')">
+					<p class="error">Description must be at least 10 characters long</p>
+				</ng-container>
+		</div>
 
-        <ng-container *ngIf="form.submitted && form.invalid">
-            <p class="error">Please fill in all required fields.</p>
-        </ng-container>
-    </form>
+
+		<div>
+			<label for="ingredients" class="edit-recipe-label">
+				Ingredients
+			</label>
+			<textarea 
+				class="edit-recipe-textarea" 
+				name="ingredients" 
+				placeholder="Enter recipe ingredients..." 
+				required
+				[(ngModel)]="recipe.ingredients" 
+				ngModel #inputRecipeIngredients="ngModel"
+				 minlength="10">
+			</textarea>
+				<ng-container *ngIf="inputRecipeIngredients.touched && inputRecipeIngredients.hasError('required')">
+					<p class="error">Ingredients are required</p>
+				</ng-container>
+
+				<ng-container *ngIf="inputRecipeIngredients.touched && inputRecipeIngredients.hasError('minlength')">
+					<p class="error">Ingredients must be at least 10 characters long</p>
+				</ng-container>
+		</div>
+
+		<div>
+			<label for="instructions" class="edit-recipe-label">Instructions</label>
+			<textarea 
+				class="edit-recipe-textarea" 
+				name="instructions" 
+				placeholder="Enter recipe instructions..."
+				required 
+				[(ngModel)]="recipe.ingredients" 
+				ngModel 
+				#inputRecipeInstructions="ngModel"
+				minlength="10">
+			</textarea>
+				<ng-container *ngIf="inputRecipeInstructions.touched && inputRecipeInstructions.hasError('required')">
+					<p class="error">Instructions are required</p>
+				</ng-container>
+
+				<ng-container *ngIf="inputRecipeInstructions.touched && inputRecipeInstructions.hasError('minlength')">
+					<p class="error">Instructions must be at least 10 characters long</p>
+				</ng-container>
+		</div>
+
+		<button class="edit-recipe-button">Edit</button>
+
+			<ng-container *ngIf="form.submitted && form.invalid">
+				<p class="error">Please fill in all required fields.</p>
+			</ng-container>
+	</form>
 </div>
