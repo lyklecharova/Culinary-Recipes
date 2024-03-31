@@ -1,0 +1,46 @@
+.user-recipes {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 90vh;
+}
+
+.user-recipes .title {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.user-recipes ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.user-recipes li {
+	margin-bottom: 20px;
+}
+
+.user-recipes li a {
+	text-decoration: none;
+	color: #333;
+	display: block;
+}
+
+.user-recipes li a:hover {
+	text-decoration: underline;
+}
+
+.user-recipes .recipe-thumbnail {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.user-recipes h3 {
+	font-size: 16px;
+	margin: 5px 0;
+}
