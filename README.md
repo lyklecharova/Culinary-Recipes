@@ -8,8 +8,8 @@ Project is Single Page Application (SPA) created for books using React for the F
 <h2>Project Screenshots:</h2>
 <p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/recipes-page-with-content.png" alt="catalog" width="960" height="540/"></p>
 <p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/detail-page1.png" alt="detail-page" width="960" height="540/"></p>
-<p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/detail-page-ingredients.png" alt="detail-page-ingredients" width="960" height="540/"></p>
-<p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/detail-page-instructions.png" alt="detail-page-instructions" width="960" height="540/"></p>
+<p align="center"><img src="https://github.com/lyklecharova/Culinary-Recipes/blob/main/client/culinary-recipes/src/assets/project-image/detail-page-ingredients-instructions.png" alt="detail-page-ingredients-instructions" width="960" height="540/"></p>
+
 
 
 <h2>💻 Built with</h2>
@@ -32,3 +32,4 @@ Technologies used in the project:
         * `cd culinary-recipies/server` -> `npm install` (or `npm i`)
         * `npm run csr`
         * server is listening at http://localhost:3030
+       
