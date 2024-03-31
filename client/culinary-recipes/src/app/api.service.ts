@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, map } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { Recipe } from './types/recipe';
@@ -14,7 +15,6 @@ export class ApiService {
     const { API_URL } = environment;
     return this.http.get<Recipe[]>(`${API_URL}/recipe`);
   }
-
   createRecipe(recipe: Recipe) {
     const { API_URL } = environment;
     const payload = recipe;
@@ -24,6 +24,17 @@ export class ApiService {
   getOneRecipe(id: string) {
     const { API_URL } = environment;
     return this.http.get<Recipe>(`${API_URL}/recipe/${id}`);
+  }
+
+  getRecipesByUser(userId: string): Observable<Recipe[]> {
+    const { API_URL } = environment;
+    return this.http.get<Recipe[]>(`${API_URL}/recipe`).pipe(
+      map((recipes) =>
+        recipes.filter((recipe) => {
+          return recipe.ownerId === userId;
+        })
+      )
+    );
   }
 
   editRecipe(recipe: Recipe, id: string) {
