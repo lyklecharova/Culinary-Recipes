@@ -7,5 +7,5 @@ export interface Recipe {
   description: string;
   instructions:string[];
   ingredients: string[];
-  ownerId?: User;
+  ownerId?: string;
 }
