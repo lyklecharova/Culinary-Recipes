@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from './core/core.module';
 
@@ -12,14 +12,11 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './pages/user/user.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { PagesModule } from './pages/pages.module';
-import { AuthComponent } from './auth/auth.component';
-
+import { InterceptorInterceptor } from './interceptor.interceptor';
+import { AuthenicateComponent } from './authenicate/authenicate.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthComponent,
-  ],
+  declarations: [AppComponent, AuthenicateComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -31,7 +28,14 @@ import { AuthComponent } from './auth/auth.component';
     RouterModule,
     AppRoutingModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorInterceptor,
+      multi: true,
+    },
+    AuthenicateComponent,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
