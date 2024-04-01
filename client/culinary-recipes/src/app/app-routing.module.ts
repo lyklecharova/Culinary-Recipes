@@ -12,6 +12,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { DetailsComponent } from './recipes/details/details.component';
 import { AuthenicateComponent } from './authenicate/authenicate.component';
+import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -34,6 +35,13 @@ const routes: Routes = [
     component: EditComponent,
     canActivate: [AuthenicateComponent],
   },
+
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+    canActivate: [AuthenicateComponent],
+  },
+
   { path: '**', redirectTo: '/404' },
   { path: '404', component: ErrorComponent },
 ];
