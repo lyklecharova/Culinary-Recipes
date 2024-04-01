@@ -1,40 +1,33 @@
 <div class="container-recipe">
-    <div class="recipe">
-        <div>
-            <div class="recipe-header">
+	<div class="recipe">
+		<div>
+			<div class="recipe-header">
 
-                <h1 class="recipe-title">{{recipe?.title}}</h1>
-                <img src={{recipe?.image}} alt={{recipe?.title}} class="recipe-image" />
-                <a *ngIf="userId === recipeOwnerId" [routerLink]="['/edit-recipe', currentRecipeId]"><button
-                        class="edit-recipe-button">Edit</button></a>
-                <button *ngIf="userId === recipeOwnerId" (click)="deleteRecipe()"
-                    class="delete-recipe-button">Delete</button>
-                <p class="recipe-description">{{recipe?.description}}</p>
-            </div>
+				<h1 class="recipe-title">{{recipe?.title}}</h1>
+				<img src={{recipe?.image}} alt={{recipe?.title}} class="recipe-image" />
 
-            <div class="ingredient-list">
-                <h2>Ingredients:</h2>
-                <ul role="list">
-                    <li class="ingredient">{{recipe?.ingredients}}</li>
-                    <li class="ingredient">{{recipe?.ingredients}}</li>
-                    <li class="ingredient">{{recipe?.ingredients}}</li>
-                    <li class="ingredient">{{recipe?.ingredients}}</li>
-                    <li class="ingredient">{{recipe?.ingredients}}</li>
-                    <li class="ingredient">{{recipe?.ingredients}}</li>
-                </ul>
-            </div>
-        </div>
+				<a *ngIf="userId === recipeOwnerId" [routerLink]="['/edit-recipe', currentRecipeId]"><button
+						class="edit-recipe-button">Edit</button></a>
+				<button *ngIf="userId === recipeOwnerId" (click)="deleteRecipe()"
+					class="delete-recipe-button">Delete</button>
+				<p class="recipe-description">{{recipe?.description}}</p>
 
-        <div class="instruction-list">
-            <h2>Instructions:</h2>
-            <ol>
-                <li class="instruction">{{recipe?.instructions}}</li>
-                <li class="instruction">{{recipe?.instructions}}</li>
-                <li class="instruction">{{recipe?.instructions}}</li>
-                <li class="instruction">{{recipe?.instructions}}</li>
-                <li class="instruction">{{recipe?.instructions}}</li>
-            </ol>
-        </div>
-    </div>
+			</div>
+
+			<div class="ingredient-list">
+				<h2>Ingredients:</h2>
+				<ul role="list">
+					<li *ngFor="let ingredient of recipe?.ingredients" class="ingredient">{{ingredient}}</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="instruction-list">
+			<h2>Instructions:</h2>
+			<ol>
+				<li *ngFor="let instruction of recipe?.instructions" class="instruction">{{instruction}}</li>
+			</ol>
+		</div>
+	</div>
 
 </div>
