@@ -3,7 +3,9 @@
 		<li *ngFor="let recipe of recipes">
 			<a [routerLink]="['/recipe', recipe._id]">
 				<img [src]="recipe.image" [alt]="recipe.title" class="recipe-thumbnail">
-				<h3>{{ recipe.title }}</h3>
+				<h3>{{ recipe.title }}
+					{{ recipe.title.length > 10 ? recipe.title.slice(0, 10) + '...' : recipe.title }}
+				</h3>
 			</a>
 		</li>
 		<li *ngIf="recipes.length === 0" class="msg">No recipes found.</li>
