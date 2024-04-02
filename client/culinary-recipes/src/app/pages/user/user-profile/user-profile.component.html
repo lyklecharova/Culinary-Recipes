@@ -1,15 +1,11 @@
 <div class="user-recipes">
-  <h2 class="title">Recipes Added by User</h2>
-  <ul>
-    <li *ngFor="let recipe of recipes">
-      <a [routerLink]="['/recipe', recipe._id]">
-        <img [src]="recipe.image" [alt]="recipe.title" class="recipe-thumbnail">
-        <h3>{{ recipe.title }}</h3>
-      </a>
-    </li>
-    <li *ngIf="recipes.length === 0">No recipes found.</li>
-  </ul>
-</div>  
-
-
-
+	<ul>
+		<li *ngFor="let recipe of recipes">
+			<a [routerLink]="['/recipe', recipe._id]">
+				<img [src]="recipe.image" [alt]="recipe.title" class="recipe-thumbnail">
+				<h3>{{ recipe.title }}</h3>
+			</a>
+		</li>
+		<li *ngIf="recipes.length === 0" class="msg">No recipes found.</li>
+	</ul>
+</div>
