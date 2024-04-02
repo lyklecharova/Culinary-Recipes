@@ -8,8 +8,10 @@
 
 				<a *ngIf="userId === recipeOwnerId" [routerLink]="['/edit-recipe', currentRecipeId]"><button
 						class="edit-recipe-button">Edit</button></a>
-				<button *ngIf="userId === recipeOwnerId" (click)="deleteRecipe()"
+				<button *ngIf="userId === recipeOwnerId" (click)="confirmDelete()"
 					class="delete-recipe-button">Delete</button>
+
+
 				<p class="recipe-description">{{recipe?.description}}</p>
 
 			</div>
