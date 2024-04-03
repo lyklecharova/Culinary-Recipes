@@ -34,6 +34,7 @@
                 ngModel
                 #inputRecipeTitle = 'ngModel'
                 minlength="10"
+                maxlength="2000"
             />
             <ng-container *ngIf="inputRecipeTitle.touched && inputRecipeTitle.hasError('required')">
                 <p class="error">Title is required</p>
@@ -56,6 +57,7 @@
                 ngModel
                 #inputRecipeDescription = 'ngModel'
                 minlength="10"
+                maxlength="2000"
             >
             </textarea>
             <ng-container *ngIf="inputRecipeDescription.touched && inputRecipeDescription.hasError('required')">
@@ -103,6 +105,7 @@
                 ngModel
                 #inputRecipeInstructions="ngModel"
                 minlength="10"
+                maxlength="2000"
             >
             </textarea>
             <ng-container *ngIf="inputRecipeInstructions.touched && inputRecipeInstructions.hasError('required')">
