@@ -38,7 +38,8 @@
 				[(ngModel)]="recipe.title" 
 				ngModel 
 				#inputRecipeTitle="ngModel" 
-				minlength="10" 
+				minlength="10"
+				maxlength="2000" 
 			/>
 				<ng-container *ngIf="inputRecipeTitle.touched && inputRecipeTitle.hasError('required')">
 					<p class="error">Title is required</p>
@@ -60,7 +61,9 @@
 				[(ngModel)]="recipe.description" 
 				ngModel 
 				#inputRecipeDescription="ngModel" 
-				minlength="10">
+				minlength="10"
+				maxlength="2000"
+			>
 			</textarea>
 				<ng-container *ngIf="inputRecipeDescription.touched && inputRecipeDescription.hasError('required')">
 					<p class="error">Description is required</p>
@@ -83,7 +86,9 @@
 				required
 				[(ngModel)]="recipe.ingredients" 
 				ngModel #inputRecipeIngredients="ngModel"
-				 minlength="10">
+				 minlength="10"
+				 maxlength="2000"
+			>
 			</textarea>
 				<ng-container *ngIf="inputRecipeIngredients.touched && inputRecipeIngredients.hasError('required')">
 					<p class="error">Ingredients are required</p>
@@ -104,7 +109,9 @@
 				[(ngModel)]="recipe.instructions" 
 				ngModel 
 				#inputRecipeInstructions="ngModel"
-				minlength="10">
+				minlength="10"
+				maxlength="2000"
+			>
 			</textarea>
 				<ng-container *ngIf="inputRecipeInstructions.touched && inputRecipeInstructions.hasError('required')">
 					<p class="error">Instructions are required</p>
