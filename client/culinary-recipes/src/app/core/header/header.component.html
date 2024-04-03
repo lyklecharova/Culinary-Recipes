@@ -1,42 +1,41 @@
 <header class="header">
     <nav *ngIf="isLogged" class="navigation-welcome">
         <div class="content-logo">
-            <a class="logo-link" routerLink="/">Healthy Delicious</a>
+            <a class="link" routerLink="/">Culinary Recipes</a>
         </div>
         <div class="content-links">
             <a class="link" routerLink="/create-recipe">Create Recipe</a>
             <a class="link" routerLink="/recipes">Recipes</a>
             <a class="link" routerLink="/about-us">About Us</a>
             <a class="link" routerLink="/contacts">Contacts</a>
-            <a class="link" routerLink="/profile"><i class="fa-solid fa-user"></i></a>
-
+            <a class="link" routerLink="/profile">Profile</a>
             <a class="link" (click)="logout()">Logout</a>
         </div>
     </nav>
 
     <nav *ngIf="!isLogged" class="navigation-guest">
         <div class="content-logo">
-            <a class="logo-link" routerLink="/">Healthy Delicious</a>
+            <a class="link" routerLink="/">Culinary Recipes</a>
         </div>
 
         <div class="content-links">
             <a class="link" routerLink="/recipes">Recipes</a>
             <a class="link" routerLink="/about-us">About Us</a>
             <a class="link" routerLink="/contacts">Contacts</a>
-            <a class="link-signIn" routerLink="/login">Login</a>
-            <a class="link-signIn" routerLink="/register">Register</a>
+            <a class="link-sign-in" routerLink="/login">Login</a>
+            <a class="link-sign-in" routerLink="/register">Register</a>
         </div>
     </nav>
 
-    <nav class="navigation-mobile">
+    <nav *ngIf="isLogged" class="navigation-mobile">
         <div class="content-logo-mobile">
-            <a class="logo-mobile-link-mobile" routerLink="/">H&D</a>
+            <a class="logo-mobile-link-mobile link" routerLink="/">Culinary Recipes</a>
         </div>
-        <div class="content-butto-dowbutton-mobile">
-            <button class="dropdown-button-mobile"><i class="fa-solid fa-bars"></i></button>
-            <div class="content-dropdown-mobile">
+        <div class="content-button-down-button-mobile">
+            <button (click)="handlerClick()" class="dropdown-button-mobile"><i class="fa-solid fa-bars"></i></button>
+            <div *ngIf="isShow" class="content-dropdown-mobile">
                 <div class="content-on-close-button-mobile">
-                    <button class="on-close-button-mobile"><i class="fa-solid fa-x"></i></button>
+                    <button (click)="handlerClick()" class="on-close-button-mobile"><i class="fa-solid fa-x"></i></button>
 
                 </div>
                 <a class="link-mobile" href=""><i class="fa-solid fa-house"></i></a>
@@ -44,8 +43,30 @@
                 <a class="link-mobile" routerLink="/recipes">Recipes</a>
                 <a class="link-mobile" routerLink="/about-us">About Us</a>
                 <a class="link" routerLink="/contacts">Contacts</a>
-                <a class="link" routerLink="/profile"><i class="fa-solid fa-user"></i></a>
-                <a class="linkMobile" (click)="logout()">Logout</a>
+                <a class="link" routerLink="/profile">Profile</a>
+                <a class="link-mobile" (click)="logout()">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <nav *ngIf="!isLogged" class="navigation-mobile">
+        <div class="content-logo-mobile">
+            <a class="logo-mobile-link-mobile link" routerLink="/">Culinary Recipes</a>
+        </div>
+        <div class="content-button-down-button-mobile">
+            <button (click)="handlerClick()" class="dropdown-button-mobile"><i class="fa-solid fa-bars"></i></button>
+            <div *ngIf="isShow" class="content-dropdown-mobile">
+                <div class="content-on-close-button-mobile">
+                    <button (click)="handlerClick()" class="on-close-button-mobile"><i class="fa-solid fa-x"></i></button>
+
+                </div>
+                <a class="link-mobile" href=""><i class="fa-solid fa-house"></i></a>
+                <a class="link-mobile" routerLink="/recipes">Recipes</a>
+                <a class="link-mobile" routerLink="/about-us">About Us</a>
+                <a class="link" routerLink="/contacts">Contacts</a>
+                <a class="link-mobile" routerLink="/login">Login</a>
+            <a class="link" routerLink="/register">Register</a>
             </div>
         </div>
     </nav>
