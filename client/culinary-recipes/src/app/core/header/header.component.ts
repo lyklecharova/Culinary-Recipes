@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/pages/user/user.service';
 
@@ -9,10 +8,17 @@ import { UserService } from 'src/app/pages/user/user.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private user: UserService, private router: Router) {}
+  constructor(private user: UserService) {}
+  isShow: boolean = false;
   get isLogged(): boolean {
     // Връща стойността на свойството isLogged
     return this.user.isLogged;
+  }
+
+  handlerClick(): void {
+    console.log('Button clicked');
+
+    this.isShow = !this.isShow;
   }
 
   logout() {
