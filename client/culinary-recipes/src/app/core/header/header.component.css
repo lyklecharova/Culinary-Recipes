@@ -16,7 +16,6 @@
     padding: 15px;
     background-color: white;
     box-shadow: 0px 0px 30px 30px white;
-
 }
 
 .content-links {
@@ -40,7 +39,7 @@
 
 }
 
-.link-signIn {
+.link-sign-in {
     color: rgba(255, 0, 0, 0.637);
     font-weight: 500;
     letter-spacing: 1.5px;
@@ -49,15 +48,16 @@
     border-radius: 50px;
 }
 
-.link-signIn:hover {
+.link-sign-in:hover {
     background-color: orange;
     border: 2px solid orange;
     color: white;
 
 
 }
+
 /* --------------------------------------Navigation-Mobile------------------------------------------ */
-.navigation-mobile{
+.navigation-mobile {
     display: none;
     flex-direction: row;
     align-items: center;
@@ -76,9 +76,10 @@
     color: orange;
     font-weight: 400;
 }
+
 .content-dropdown-mobile {
     position: absolute;
-    display: none;
+    display: flex;
     flex-direction: column;
     text-align: center;
     z-index: 1;
@@ -90,11 +91,8 @@
     width: 90%;
     gap: 20px;
     height: 800px;
+}
 
-}
-.content-button-down-button-mobile:hover .content-dropdown-mobile {
-    display: flex;
-}
 .link-mobile {
     color: orange;
     font-weight: 400;
@@ -114,35 +112,46 @@
     border: none;
     font-size: 18px;
     padding: 10px 20px;
-
 }
+
 /* ---------------------Media-Queries-------------------------- */
 
 @media (min-width: 250px) and (max-width: 768px) {
-    .navigationMobile {
+    .navigation-mobile {
         display: flex;
 
     }
 
-    .navigationWelcome {
+    .navigation-welcome {
+        display: none;
+    }
+
+    .navigation-guest {
         display: none;
     }
 }
 
+
 @media (min-width: 800px) {
-    .link, .linkSignIn  {
+
+    .link,
+    .link-sign-in {
         font-size: 16px;
     }
-  }
-  
-  @media (min-width: 1024px) {
-    .link, .link-signIn  {
+}
+
+@media (min-width: 1024px) {
+
+    .link,
+    .link-sign-in {
         font-size: 18px;
     }
-  }
-  
-  @media (min-width: 1280px) {
-    .link, .link-signIn  {
+}
+
+@media (min-width: 1280px) {
+
+    .link,
+    .link-sign-in {
         font-size: 20px;
     }
-  }
+}
